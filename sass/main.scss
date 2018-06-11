@@ -1,0 +1,894 @@
+/************************************************** Variables *********************************************************/
+/*********************** Colours ***************************/
+$primaryColour: #424242;
+$primaryColourDark: #616161;
+$secondaryColourDarker: #424242;
+$backgroundColour: #E0E0E0;
+$textColour: #212121;
+
+/*********************** All Pages ***************************/
+$headerHeight: 60px;
+$br-md: 800px;
+$br-lg: 1000px;
+
+/************************************************ Page Body ***********************************************************/
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  color: #212121;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: #03A9F4 !important;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*********************************************** Components ***********************************************************/
+/*********************** Material Icons ************************/
+.material-icons-component {
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  .material-icons {
+    padding: 10px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+/******************************************** All Pages Styling *******************************************************/
+header {
+  height: $headerHeight;
+  width: 100%;
+  background: $primaryColour;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 1;
+  position: relative;
+
+  .material-icons-component {
+    z-index: 1;
+    @media (min-width: $br-lg) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .material-icons {
+      color: #fff;
+    }
+  }
+
+  #logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  }
+
+  #nav-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: none;
+    @media (min-width: $br-lg) {
+      position: static;
+      display: block;
+      height: 100%;
+    }
+
+    nav {
+      width: 85%;
+      max-width: 350px;
+      background: #fff;
+      -webkit-box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.75);
+      box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.75);
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 10px 0;
+      left: -90%;
+      @media (min-width: $br-lg) {
+        position: static;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        padding: 0;
+        height: 100%;
+        max-width: none;
+      }
+
+      .nav-item {
+        padding: 10px;
+        cursor: pointer;
+        @media (min-width: $br-lg) {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        &:nth-child(even) {
+          background: #F5F5F5;
+          @media (min-width: $br-lg) {
+            background: none;
+          }
+        }
+
+        &:hover {
+          background: #E0E0E0;
+          @media (min-width: $br-lg) {
+            background: #212121;
+          }
+        }
+
+        span {
+          @media (min-width: $br-lg) {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    #nav-shade {
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      cursor: pointer;
+      opacity: 0;
+      @media (min-width: $br-lg) {
+        display: none;
+      }
+    }
+  }
+
+}
+
+#page-container {
+  height: calc(100% - #{$headerHeight});
+  overflow: auto;
+
+  main {
+    width: 100%;
+    min-height: 100%
+  }
+}
+
+/*********************************************** Home Page ************************************************************/
+
+/*********************** Page Sections ************************/
+.page-section {
+  width: 100%;
+  background: $backgroundColour;
+  display: flex;
+  justify-content: center;
+
+  &:not(:last-child) .width-restrict {
+    border: 1px solid #E0E0E0;
+    border-width: 0 0 1px 0;
+  }
+
+  .width-restrict {
+    max-width: 1200px;
+    width: 100%;
+    background: #fff;
+    padding: 20px 30px 30px 30px;
+    @media(min-width: $br-md) {
+      padding: 30px 60px 60px 60px;
+    }
+
+    h2 {
+      font-size: 33px;
+      font-weight: 200;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h5 {
+      text-align:center;
+    }
+  }
+}
+
+/*********************** Personal Statement ************************/
+#personal-statement {
+
+  .width-restrict {
+
+    #statement-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column nowrap;
+      @media(min-width: $br-md) {
+        flex-flow: row nowrap;
+        min-height: 250px;
+      }
+
+      #speech-bubble-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 40px;
+        position: relative;
+        flex: 0 0 auto;
+        max-width: 700px;
+        @media(min-width: $br-md) {
+          width: calc(100% - 250px);
+          min-height: 100%;
+          padding: 20px 40px 20px 0;
+        }
+
+        #speech-bubble {
+          width: 100%;
+          min-height: 100%;
+          border: 1px solid #9E9E9E;
+          border-radius: 6px;
+          padding: 20px;
+          background: $backgroundColour;
+
+          span {
+            background: #fff;
+            padding: 20px;
+            min-height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 4px;
+          }
+        }
+
+        #bubble-triangle {
+          position: absolute;
+          bottom: 41px;
+          right: 79px;
+          @media(min-width: $br-md) {
+            -ms-transform: rotate(-90deg); /* IE 9 */
+            -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+            transform: rotate(-90deg);
+            top: 96px;
+            right: 41px;
+            bottom: auto;
+          }
+
+          &:before, &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent;
+            border-bottom: 0;
+          }
+
+          /* Stroke */
+          &:before {
+            bottom: -16px;
+            left: 21px;
+            border-top-color: #9E9E9E;
+            border-width: 16px;
+          }
+
+          /* Fill */
+          &:after {
+            bottom: -15px;
+            left: 22px;
+            border-top-color: $backgroundColour;
+            border-width: 15px;
+          }
+        }
+      }
+
+      #joe-container {
+        width: 200px;
+        height: 200px;
+        background-image: url("../img/joe.jpg");
+        border-radius: 100%;
+        background-size: cover;
+        border: 1px solid #9E9E9E;
+        @media(min-width: $br-md) {
+          width: 250px;
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+
+/*********************** Projects / Work ************************/
+#work-section {
+
+  .width-restrict {
+    padding: 10px 0 10px 10px;
+    @media (min-width: $br-md) {
+      padding: 30px 0 60px 60px;
+    }
+
+    .company-container {
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+
+      .stripe {
+        width: 15px;
+        @media (min-width: $br-md) {
+          width: 20px;
+        }
+      }
+
+      .content-container {
+        width: calc(100% - 15px);
+        @media (min-width: $br-md) {
+          width: calc(100% - 20px);
+        }
+
+        .company-top-parallelogram-container {
+          height: 40px;
+          width: 100%;
+          position: relative;
+          padding-right: 10px;
+          @media (min-width: $br-md) {
+            width: 75%;
+            height: 55px;
+            padding-right: 0;
+          }
+
+          .img-banner {
+            height: 100%;
+            width: calc(100% - 20px);
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 13px 0;
+            @media (min-width: $br-md) {
+              padding: 18px 0;
+            }
+
+            img {
+              height: 100%;
+            }
+          }
+
+          .faux-parallelogram {
+            width: 40px;
+            height: 100%;
+            position: absolute;
+            right: 20px;
+            top: 0;
+            -webkit-transform: skew(-20deg);
+            -moz-transform: skew(-20deg);
+            -o-transform: skew(-20deg);
+            @media (min-width: $br-md) {
+              right: 0;
+            }
+          }
+        }
+
+        .company-content {
+          padding: 10px 0 10px 10px;
+          @media (min-width: $br-md) {
+            padding: 20px 0 20px 20px;
+          }
+
+          .company-details {
+            background: $backgroundColour;
+            padding: 10px;
+            border-radius: 4px;
+            margin-right: 20px;
+            @media (min-width: $br-md) {
+              padding: 20px;
+              margin-right: 0;
+            }
+
+            .company-details-inner {
+              background: #fff;
+              padding: 10px;
+              border-radius: 4px;
+              @media (min-width: $br-md) {
+                padding: 20px;
+              }
+
+              p {
+
+                span {
+                  font-size: 18px;
+                  font-weight: 100;
+                  @media (min-width: $br-md) {
+                    font-size: 21px;
+                  }
+                }
+
+                a {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          .project {
+
+            .project-parallelogram-container {
+              position: relative;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+              overflow: hidden;
+              margin: 40px 0 10px 0;
+              @media (min-width: $br-md) {
+                margin: 80px 0 40px 0;
+              }
+
+              .true-parallelogram {
+                width: 90%;
+                height: 40px;
+                -webkit-transform: skew(20deg);
+                -moz-transform: skew(20deg);
+                -o-transform: skew(20deg);
+                position: relative;
+                left: 20px;
+                background: #000;
+                overflow: hidden;
+                @media (min-width: $br-md) {
+                  width: 45%;
+                  height: 55px;
+                  max-width: 500px;
+                }
+
+                img {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                  height: 100%;
+                  -webkit-transform: skew(-20deg);
+                  -moz-transform: skew(-20deg);
+                  -o-transform: skew(-20deg);
+                }
+
+                .shade {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: rgba(0, 0, 0, 0.6);
+                }
+              }
+
+              .project-title {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 90%;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                padding-left: 40px;
+                @media (min-width: $br-md) {
+                  width: 45%;
+                  max-width: 500px;
+                }
+
+                span {
+                  font-size: 22px;
+                  color: #fff;
+                  font-weight: 300;
+                  @media (min-width: $br-md) {
+                    font-size: 25px;
+                  }
+                }
+              }
+            }
+
+            .project-content {
+              background: $backgroundColour;
+              padding: 10px;
+              border-radius: 4px;
+              margin-right: 20px;
+              @media (min-width: $br-md) {
+                padding: 20px;
+                margin-right: 60px;
+              }
+
+              .project-content-inner {
+                background: #fff;
+                padding: 10px;
+                border-radius: 4px;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                @media (min-width: $br-md) {
+                  padding: 20px;
+                }
+                @media (min-width: $br-lg) {
+                  padding: 40px 140px;
+                }
+
+                h5 {
+                  font-size: 21px;
+                  font-weight: 100;
+                  margin-top: 0;
+                  margin-bottom: 20px;
+
+                  &:not(:first-child) {
+                    margin-top: 40px;
+                  }
+                }
+
+                ul {
+                  padding-left: 20px;
+                }
+              }
+            }
+          }
+        }
+
+        .company-bottom-parallelogram-container {
+          width: 30%;
+          position: relative;
+
+          .rectangle {
+            height: 15px;
+            width: calc(100% - 10px);
+            @media (min-width: $br-md) {
+              height: 20px;
+            }
+          }
+
+          .faux-parallelogram {
+            -webkit-transform: skew(-20deg);
+            -moz-transform: skew(-20deg);
+            -o-transform: skew(-20deg);
+            height: 100%;
+            width: 20px;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+
+    /*********** Additional Rules ************/
+    .company-details, .project-details {
+      @media (min-width: $br-md) {
+        margin-right: 60px !important;
+      }
+    }
+
+    /*********** Layered Tech ************/
+    #layered-tech {
+
+      .stripe,
+      .company-top-parallelogram-container .img-banner,
+      .company-top-parallelogram-container .faux-parallelogram,
+      .company-bottom-parallelogram-container .rectangle,
+      .company-bottom-parallelogram-container .faux-parallelogram {
+        background: #17ABE4;
+      }
+    }
+
+    /*********** UWE ************/
+    #uwe {
+
+      .stripe,
+      .company-top-parallelogram-container .img-banner,
+      .company-top-parallelogram-container .faux-parallelogram,
+      .company-bottom-parallelogram-container .rectangle,
+      .company-bottom-parallelogram-container .faux-parallelogram {
+        background: #E30613;
+      }
+    }
+
+    /*********** Freelance ************/
+    #freelance {
+
+      .stripe,
+      .company-top-parallelogram-container .img-banner,
+      .company-top-parallelogram-container .faux-parallelogram,
+      .company-bottom-parallelogram-container .rectangle,
+      .company-bottom-parallelogram-container .faux-parallelogram {
+        background: #424242;
+      }
+
+      .company-top-parallelogram-container .img-banner span {
+        color: #fff;
+        font-size: 25px;
+        font-weight: 100;
+      }
+    }
+  }
+}
+
+/*********************** Education ************************/
+#education-section {
+
+  .width-restrict {
+    background: #424242;
+    padding: 0 0 30px 0;
+    overflow: hidden;
+    @media (min-width: $br-md) {
+      padding: 30px 60px 60px 0;
+    }
+
+    h2 {
+      color: #fff;
+    }
+
+    .school {
+
+      &:not(:first-of-type) {
+        margin-top: 60px;
+      }
+
+      .school-parallelogram-container {
+        position: relative;
+        margin: 80px 0 40px 0;
+
+        &:first-child {
+          margin-top: 30px;
+        }
+
+        .true-parallelogram {
+          width: 90%;
+          height: 40px;
+          -webkit-transform: skew(-20deg);
+          -moz-transform: skew(-20deg);
+          -o-transform: skew(-20deg);
+          position: relative;
+          left: -20px;
+          background: #000;
+          overflow: hidden;
+          @media (min-width: $br-md) {
+            width: 45%;
+            height: 55px;
+          }
+
+          img {
+            padding: 10px;
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            -webkit-transform: skew(20deg);
+            -moz-transform: skew(20deg);
+            -o-transform: skew(20deg);
+            @media (min-width: $br-md) {
+              padding: 20px;
+            }
+          }
+        }
+      }
+
+      .certificate-content {
+        background: $backgroundColour;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 20px;
+        @media (min-width: $br-md) {
+          margin: 0 0 0 60px;
+          padding: 20px;
+        }
+
+        .certificate-content-inner {
+          background: #fff;
+          padding: 10px;
+          border-radius: 4px;
+          @media (min-width: $br-md) {
+            padding: 20px;
+          }
+
+          .certificate-title {
+            text-align: center;
+
+            &:not(:last-child) {
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+
+      /*********** UWE ************/
+      &#school-uwe {
+
+        .school-parallelogram-container .true-parallelogram {
+          background: #E30613;
+        }
+      }
+
+      /*********** Riddlesdown ************/
+      &#school-riddlesdown, &#school-riddlesdown2 {
+
+        .school-parallelogram-container .true-parallelogram {
+          background: #fff;
+        }
+      }
+    }
+  }
+}
+
+/*********************** Personal Interests ************************/
+#interests-section {
+
+  .interests-content {
+    background: $backgroundColour;
+    padding: 10px;
+    border-radius: 4px;
+    @media (min-width: $br-md) {
+      padding: 20px;
+    }
+
+    .interests-content-inner {
+      background: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      @media (min-width: $br-md) {
+        padding: 20px;
+      }
+      @media (min-width: $br-lg) {
+        padding: 40px 140px;
+      }
+
+      h5 {
+        font-size: 21px;
+        font-weight: 100;
+        margin-top: 0;
+        margin-bottom: 20px;
+
+        &:not(:first-child) {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+/*********************** References ************************/
+#references-section {
+
+  .width-restrict {
+    background: #424242;
+
+    h2 {
+      color: #fff;
+    }
+
+    .reference-content {
+      background: $backgroundColour;
+      padding: 10px;
+      border-radius: 4px;
+      @media (min-width: $br-md) {
+        padding: 20px;
+      }
+
+      .reference-content-inner {
+        background: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        @media (min-width: $br-md) {
+          padding: 20px;
+        }
+
+        h5 {
+          font-size: 21px;
+          font-weight: 100;
+          margin-top: 0;
+          margin-bottom: 20px;
+
+          &:not(:first-child) {
+            margin-top: 40px;
+          }
+        }
+
+        .referee {
+          margin-bottom: 40px;
+
+          .small-print {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/************************************************ Footer ************************************************************/
+footer {
+  background: #212121;
+  padding: 40px 20px;
+
+  h2 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 33px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: #fff;
+    margin-bottom: 0;
+  }
+
+  .contact-detail {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+
+    p {
+      margin-right: 5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
